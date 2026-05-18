@@ -4,89 +4,547 @@
 
 [Email Intent & Urgency Detector](https://huggingface.co/spaces/ambika6/EMAIL_INTENT_URGENCY_DETECTOR)
 
-````markdown
-# 📧 Email Intent & Urgency Detector
+# 📧 AI Email Intent & Urgency Detector
 
-An AI-powered Email Classification App built using:
+## 📌 Project Overview
 
-- Streamlit
-- LangChain
-- Groq LLM
-- Pydantic Output Parser
+The AI Email Intent & Urgency Detector is a Large Language Model (LLM)-powered application that analyzes email text and classifies it into:
 
-This application analyzes emails and predicts:
+* Intent
+* Urgency Level
+* Tone
 
-✅ Intent  
-✅ Urgency  
-✅ Tone  
+The system is built using:
+
+* Streamlit
+* LangChain
+* Groq LLM
+* Pydantic
+* Python
+
+This project demonstrates practical usage of:
+
+* Prompt Engineering
+* Structured Output Parsing
+* LLM Pipelines
+* AI-based Text Classification
+* Streamlit Web Application Development
 
 ---
 
 # 🚀 Features
 
-- Email Intent Detection
-- Urgency Classification
-- Tone Analysis
-- Beautiful Streamlit UI
-- Multiple Test Cases
-- Batch Testing Support
-- Structured JSON Output using Pydantic
-- Groq LLM Integration
+## ✅ Email Classification
+
+The application classifies emails into:
+
+### Intent Categories
+
+* Request
+* Information
+* Complaint
+* Follow-up
+* Greeting
+* Appreciation
+* Other
+
+### Urgency Levels
+
+* High
+* Medium
+* Low
+
+### Tone Types
+
+* Urgent
+* Neutral
+* Polite
+* Friendly
+* Frustrated
+* Formal
 
 ---
 
-# 🧠 Intent Categories
+## ✅ AI-Powered Analysis
 
-- Greeting
-- Appreciation
-- Complaint
-- Request
-- Follow-up
-- Information
+Uses Groq-hosted Llama 3.1 model for intelligent email understanding.
 
 ---
 
-# ⚡ Urgency Levels
+## ✅ Structured JSON Output
 
-- Low
-- Medium
-- High
+The model returns structured JSON output using Pydantic validation.
 
 ---
 
-# 🎭 Tone Types
+## ✅ Streamlit User Interface
 
-- Friendly
-- Polite
-- Neutral
-- Frustrated
-- Urgent
+Provides an interactive web application for users to:
+
+* Enter email text
+* Analyze emails
+* View results instantly
+* Run test cases
+
+---
+
+## ✅ Prompt Engineering
+
+Uses carefully designed prompts to improve:
+
+* Classification accuracy
+* Output consistency
+* JSON formatting reliability
+
+---
+
+## ✅ Automated Test Cases
+
+Includes predefined test cases to validate model predictions.
+
+---
+
+# 🧠 Problem Statement
+
+Organizations receive thousands of emails daily.
+
+Manually identifying:
+
+* customer complaints
+* urgent issues
+* requests
+* follow-ups
+* appreciation emails
+
+is time-consuming.
+
+This project automates email understanding using Artificial Intelligence and Large Language Models.
+
+---
+
+# 🎯 Objectives
+
+The main objectives of this project are:
+
+* Automate email classification
+* Detect urgency level of emails
+* Identify email tone
+* Build a structured AI pipeline
+* Demonstrate prompt engineering concepts
+* Create a user-friendly AI application
+
+---
+
+# 🛠️ Technologies Used
+
+| Technology | Purpose                             |
+| ---------- | ----------------------------------- |
+| Python     | Core programming language           |
+| Streamlit  | Frontend web application            |
+| LangChain  | LLM pipeline orchestration          |
+| Groq       | Fast LLM inference                  |
+| Pydantic   | Structured output validation        |
+| dotenv     | Secure environment variable loading |
 
 ---
 
 # 📂 Project Structure
 
-```bash
-project/
+```text
+email-intent-detector/
 │
 ├── app.py
+├── config.py
 ├── model.py
 ├── parser.py
 ├── prompt.py
-├── config.py
+├── test.py
 ├── requirements.txt
+├── .env
 └── README.md
-````
+```
 
 ---
 
-# 🔧 Installation
+# 📄 File Explanation
 
-## 1️⃣ Clone Repository
+# 1️⃣ app.py
+
+## Purpose
+
+`app.py` is the main frontend application file.
+
+It handles:
+
+* User Interface
+* User Input
+* Button Actions
+* AI Model Invocation
+* Result Display
+* Test Case Execution
+
+---
+
+## Main Components
+
+### Streamlit UI
+
+Used to create:
+
+* text area
+* buttons
+* headers
+* result sections
+* test case display
+
+---
+
+### Email Input
+
+```python
+email_input = st.text_area()
+```
+
+Allows users to enter email text.
+
+---
+
+### Analyze Button
+
+```python
+if st.button("Analyze Email")
+```
+
+Triggers the AI analysis pipeline.
+
+---
+
+### LangChain Pipeline
+
+```python
+chain = prompt | model | parser
+```
+
+This creates the AI workflow:
+
+```text
+Prompt → LLM Model → Output Parser
+```
+
+---
+
+### Chain Invocation
+
+```python
+result = chain.invoke({"text": email_input})
+```
+
+Sends the user email to the AI model.
+
+---
+
+### Result Display
+
+Displays:
+
+* Intent
+* Urgency
+* Tone
+
+---
+
+# 2️⃣ config.py
+
+## Purpose
+
+Stores reusable configuration data.
+
+This improves:
+
+* modularity
+* maintainability
+* code readability
+
+---
+
+## Contents
+
+### INTENT_CATEGORIES
+
+Stores intent labels and descriptions.
+
+---
+
+### URGENCY_LEVELS
+
+Stores urgency definitions.
+
+---
+
+### TONE_TYPES
+
+Stores tone categories.
+
+---
+
+### TEST_CASES
+
+Contains sample emails and expected outputs.
+
+Used for:
+
+* validation
+* testing
+* performance checking
+
+---
+
+# 3️⃣ model.py
+
+## Purpose
+
+Responsible for loading the Large Language Model.
+
+---
+
+## Main Components
+
+### load_dotenv()
+
+Loads environment variables securely.
+
+---
+
+### GROQ_API_KEY
+
+API key used to access Groq-hosted models.
+
+---
+
+### ChatGroq
+
+Initializes the Llama 3.1 model.
+
+```python
+ChatGroq(
+    model="llama-3.1-8b-instant"
+)
+```
+
+---
+
+## Why Groq?
+
+Groq provides:
+
+* fast inference
+* low latency
+* efficient LLM execution
+
+---
+
+## temperature=0
+
+```python
+temperature=0
+```
+
+Used for deterministic outputs.
+
+Important for:
+
+* classification tasks
+* consistent results
+* reliable JSON generation
+
+---
+
+# 4️⃣ parser.py
+
+## Purpose
+
+Defines structured output validation using Pydantic.
+
+---
+
+## EmailAnalysis Class
+
+Defines output fields:
+
+```python
+intent
+urgency
+tone
+```
+
+---
+
+## Why Pydantic?
+
+Pydantic:
+
+* validates model output
+* ensures proper JSON structure
+* prevents parsing errors
+* converts outputs into Python objects
+
+---
+
+## PydanticOutputParser
+
+Automatically parses LLM output into structured format.
+
+---
+
+# 5️⃣ prompt.py
+
+## Purpose
+
+Contains prompt engineering instructions.
+
+This is the most important AI logic file.
+
+---
+
+## Responsibilities
+
+The prompt controls:
+
+* classification logic
+* model behavior
+* output formatting
+* response constraints
+
+---
+
+## Prompt Engineering
+
+The prompt includes:
+
+* classification definitions
+* urgency rules
+* tone rules
+* formatting instructions
+* output restrictions
+* examples
+
+---
+
+## Why Prompt Engineering is Important?
+
+LLMs depend heavily on instructions.
+
+A better prompt improves:
+
+* accuracy
+* consistency
+* reliability
+* structured output quality
+
+---
+
+## Output Rules
+
+The model is forced to:
+
+* return valid JSON
+* avoid explanations
+* avoid markdown
+* follow strict formatting
+
+---
+
+# 6️⃣ test.py
+
+## Purpose
+
+Used to validate model performance.
+
+---
+
+## Responsibilities
+
+* Runs predefined test cases
+* Compares expected outputs
+* Displays pass/fail results
+
+---
+
+## Why Testing is Important?
+
+Testing ensures:
+
+* model reliability
+* consistency
+* classification correctness
+
+---
+
+# 🔄 Application Workflow
+
+```text
+User Enters Email
+        ↓
+Streamlit Receives Input
+        ↓
+Prompt Template Created
+        ↓
+LangChain Pipeline Executes
+        ↓
+Groq LLM Analyzes Email
+        ↓
+Pydantic Parses Output
+        ↓
+Results Displayed to User
+```
+
+---
+
+# 📊 Sample Input and Output
+
+## Input Email
+
+```text
+Please resolve this issue immediately. The server is down.
+```
+
+---
+
+## Output
+
+```json
+{
+    "intent": "Request",
+    "urgency": "High",
+    "tone": "Urgent"
+}
+```
+
+---
+
+# 🧪 Example Test Cases
+
+| Email Type         | Expected Intent |
+| ------------------ | --------------- |
+| Complaint Email    | Complaint       |
+| Greeting Email     | Greeting        |
+| Thank You Email    | Appreciation    |
+| Recruitment Update | Information     |
+| Follow-up Email    | Follow-up       |
+
+---
+
+# ⚙️ Installation
+
+## Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/ambikaramireddy/EMAIL_INTENT_URGENCY_DETECTOR
+git clone <your-github-repo-link>
 ```
+
+---
+
+## Step 2: Navigate to Project Folder
 
 ```bash
 cd email-intent-detector
@@ -94,23 +552,23 @@ cd email-intent-detector
 
 ---
 
-## 2️⃣ Create Virtual Environment
-
-### Windows
+## Step 3: Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
+---
+
+## Step 4: Activate Virtual Environment
+
+### Windows
+
 ```bash
 venv\Scripts\activate
 ```
 
-### Linux / Mac
-
-```bash
-python3 -m venv venv
-```
+### Linux/Mac
 
 ```bash
 source venv/bin/activate
@@ -118,7 +576,7 @@ source venv/bin/activate
 
 ---
 
-## 3️⃣ Install Requirements
+## Step 5: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -128,15 +586,17 @@ pip install -r requirements.txt
 
 # 🔑 Environment Variables
 
-Create a `.env` file:
+Create a `.env` file.
+
+Add:
 
 ```env
-GROQ_API_KEY=your_groq_api_key
+GROQ_API_KEY=your_api_key
 ```
 
 ---
 
-# ▶️ Run Application
+# ▶️ Running the Application
 
 ```bash
 streamlit run app.py
@@ -144,89 +604,87 @@ streamlit run app.py
 
 ---
 
-# 🌐 Hugging Face Deployment
+# 🧪 Running Tests
 
-Upload these files to your Hugging Face Space:
-
-* app.py
-* model.py
-* parser.py
-* prompt.py
-* config.py
-* requirements.txt
-
-Then add your:
-
-```text
-GROQ_API_KEY
-```
-
-inside:
-
-## Settings → Repository Secrets
-
----
-
-# 📦 requirements.txt
-
-```txt
-streamlit
-langchain
-langchain-core
-langchain-groq
-pydantic
-python-dotenv
+```bash
+python test.py
 ```
 
 ---
 
-# 🧪 Sample Input
+# 📌 Advantages of the Project
 
-```text
-Please resolve this issue immediately. The system is down for all users.
-```
-
-# ✅ Output
-
-
-
-<p align="center">
-  <img src="https://github.com/ambikaramireddy/EMAIL_INTENT_URGENCY_DETECTOR/blob/main/Screenshot%202026-05-14%20084108.png?raw=true" width="900">
-</p>
-```
-
-
-
-# 🛠 Technologies Used
-
-* Python
-* Streamlit
-* LangChain
-* Groq API
-* Pydantic
+* Automates email understanding
+* Reduces manual effort
+* Demonstrates practical AI usage
+* Shows prompt engineering concepts
+* Uses structured LLM outputs
+* Beginner-friendly architecture
 
 ---
 
-# 👨‍💻 Author
+# 🚧 Future Improvements
 
-Made with  by Ambika Ramireddy
+Future enhancements may include:
 
----
-
-# ⭐ Future Improvements
-
-* Email Spam Detection
+* Spam Detection
+* Email Summarization
 * Sentiment Analysis
+* Confidence Scores
 * Multi-language Support
-* Email Reply Generator
+* CSV Bulk Email Analysis
 * Dashboard Analytics
 * Database Integration
 
 ---
 
+# 🎓 Learning Outcomes
+
+This project helped in understanding:
+
+* Large Language Models
+* Prompt Engineering
+* LangChain Pipelines
+* Streamlit Development
+* Structured Output Parsing
+* AI Workflow Design
+* API Integration
+* Automated Testing
+
+---
+
+# 📷 Screenshots
+
+Add screenshots of:
+
+* Main UI
+* Email Analysis Result
+* Test Case Execution
+* Streamlit Dashboard
+
+---
+
+# 👨‍💻 Author
+
+Ambika Ramireddy
+
+---
+
 # 📜 License
 
-This project is open-source and available under the MIT License.
+This project is developed for educational and learning purposes.
 
-```
-```
+---
+
+# ⭐ Conclusion
+
+The AI Email Intent & Urgency Detector demonstrates how Large Language Models can be used to automate email understanding tasks.
+
+The project combines:
+
+* Prompt Engineering
+* LLM Integration
+* Structured Output Parsing
+* Web Application Development
+
+into a complete AI-powered application.
