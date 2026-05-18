@@ -1,10 +1,6 @@
 streamlit
 langchain
 langchain-core
-langchain-openai
 pydantic
 python-dotenv
-openai
-langchain-huggingface
-huggingface-hub
 langchain-groq
