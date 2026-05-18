@@ -1,11 +1,8 @@
 import os
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
-from langfuse.langchain import CallbackHandler
 
 load_dotenv()
-
-langfuse_handler = CallbackHandler()
 
 def get_model():
 
@@ -21,4 +18,4 @@ def get_model():
         max_tokens=100
     )
 
-    return llm, langfuse_handler
+    return llm
