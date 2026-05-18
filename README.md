@@ -3,6 +3,11 @@
 🚀 Hugging Face Deployment:
 
 [Email Intent & Urgency Detector](https://huggingface.co/spaces/ambika6/EMAIL_INTENT_URGENCY_DETECTOR)
+## 🚀 Live Demo
+
+Email Intent & Urgency Detector is live here:
+
+https://emailintenturgencydetector-mawt8fdnynmnqrbpvtxduz.streamlit.app/
 
 # 📧 AI Email Intent & Urgency Detector
 
