@@ -11,9 +11,8 @@ from config import (
     TONE_TYPES,
     TEST_CASES
 )
+
 from langchain_core.exceptions import OutputParserException
-
-
 
 # =========================================================
 # PAGE CONFIG
@@ -42,6 +41,8 @@ st.write(
     "Analyze email intent, urgency, and tone using AI."
 )
 
+st.write("Built with Streamlit + LangChain + Groq")
+
 # =========================================================
 # EMAIL INPUT
 # =========================================================
@@ -61,18 +62,14 @@ if st.button("Analyze Email"):
 
         try:
 
-            model, langfuse_handler = load_model()
+            model = load_model()
 
             chain = prompt | model | parser
 
             with st.spinner("Analyzing..."):
 
                 result = chain.invoke(
-                    {"text": email_input},
-                    config={
-                        "callbacks": [langfuse_handler],
-                        "run_name": "Email Analysis"
-                    }
+                    {"text": email_input}
                 )
 
             st.success("Analysis Complete")
@@ -98,7 +95,7 @@ if st.button("Analyze Email"):
 
 st.divider()
 
-st.header(" Classification Guide")
+st.header("Classification Guide")
 
 with st.expander("Intent Types"):
 
@@ -124,7 +121,7 @@ with st.expander("Tone Types"):
 
 st.divider()
 
-st.header(" Test Cases")
+st.header("Test Cases")
 
 selected_test = st.selectbox(
     "Choose Test Case",
@@ -151,4 +148,4 @@ if st.button("Run Test"):
 
 st.divider()
 
-st.write(" Built with Streamlit + LangChain + Groq")
+st.write("Built with Streamlit + LangChain + Groq")
