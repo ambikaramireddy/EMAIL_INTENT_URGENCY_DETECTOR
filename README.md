@@ -88,11 +88,6 @@ The application classifies emails into:
 
 ---
 
-## ✅ AI-Powered Analysis
-
-Uses Groq-hosted Llama 3.1 model for intelligent email understanding.
-
----
 
 ## ✅ Structured JSON Output
 
