@@ -148,6 +148,7 @@ The main objectives of this project are:
 | dotenv     | Secure environment variable loading |
 
 ---
+![System Architecture](https://raw.githubusercontent.com/ambikaramireddy/EMAIL_INTENT_URGENCY_DETECTOR/main/Screenshot%202026-05-13%20232328.png)
 
 # 📂 Project Structure
 
