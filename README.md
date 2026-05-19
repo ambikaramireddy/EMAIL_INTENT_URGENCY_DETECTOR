@@ -35,6 +35,24 @@ This project demonstrates practical usage of:
 * AI-based Text Classification
 * Streamlit Web Application Development
 
+------
+
+# 🧠 Problem Statement
+
+Organizations receive thousands of emails daily.
+
+Manually identifying:
+
+* customer complaints
+* urgent issues
+* requests
+* follow-ups
+* appreciation emails
+
+is time-consuming.
+
+This project automates email understanding using Artificial Intelligence and Large Language Models.
+
 ---
 
 # 🚀 Features
@@ -109,23 +127,6 @@ Includes predefined test cases to validate model predictions.
 
 ---
 
-# 🧠 Problem Statement
-
-Organizations receive thousands of emails daily.
-
-Manually identifying:
-
-* customer complaints
-* urgent issues
-* requests
-* follow-ups
-* appreciation emails
-
-is time-consuming.
-
-This project automates email understanding using Artificial Intelligence and Large Language Models.
-
----
 
 # 🎯 Objectives
 
