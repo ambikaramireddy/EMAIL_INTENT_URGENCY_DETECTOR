@@ -1,8 +1,4 @@
-# 🌐 Live Demo
 
-🚀 Hugging Face Deployment:
-
-[Email Intent & Urgency Detector](https://huggingface.co/spaces/ambika6/EMAIL_INTENT_URGENCY_DETECTOR)
 ## 🚀 Live Demo
 
 Email Intent & Urgency Detector is live here:
@@ -655,14 +651,23 @@ This project helped in understanding:
 
 ---
 
-# 📷 Screenshots
+## 🖼️ Application Screenshots
 
-Add screenshots of:
+### 🏠 Home Page
 
-* Main UI
-* Email Analysis Result
-* Test Case Execution
-* Streamlit Dashboard
+![Home Page](https://raw.githubusercontent.com/ambikaramireddy/EMAIL_INTENT_URGENCY_DETECTOR/main/home.png)
+
+---
+
+### 📊 Output Page
+
+![Output Page](https://raw.githubusercontent.com/ambikaramireddy/EMAIL_INTENT_URGENCY_DETECTOR/main/output.png)
+
+---
+
+### 🧪 Test Cases
+
+![Test Cases](https://raw.githubusercontent.com/ambikaramireddy/EMAIL_INTENT_URGENCY_DETECTOR/main/testcase.png)
 
 ---
 
