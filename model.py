@@ -13,7 +13,7 @@ def get_model():
 
     llm = ChatGroq(
         api_key=api_key,
-        model="llama-3.1-8b-instant",
+        model="llama-3.3-70b-versatile"",
         temperature=0,
         max_tokens=100
     )
